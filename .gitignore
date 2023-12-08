@@ -2,3 +2,4 @@
 /.cph
 *.cpp_*
 .DS_Store
+/USACO
