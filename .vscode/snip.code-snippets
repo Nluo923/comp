@@ -1,0 +1,83 @@
+{
+    "comp": {
+        "prefix": "comp",
+        "body": [
+            "#include <iostream>",
+            "#include <array>",
+            "#include <vector>",
+            "#include <algorithm>",
+            "#include <stack>",
+            "#include <queue>",
+            "#include <map>",
+            "",
+            "using namespace std;",
+            "#define ll long long",
+            "#define mod 1000000007",
+            "",
+            "bool cmp(pair<int,bool> p1, pair<int,bool> p2) {",
+            "    return false;",
+            "}",
+            "",
+            "int N;",
+            "int main() {",
+            "    cin >> N;",
+            "}"
+        ],
+        "description": "snip snip!"
+    },
+    "for_i": {
+        "prefix": "for_i",
+        "body": ["for(int i=0; i<N; i++) {", "", "}"]
+    },
+    "t_bitmasking": {
+        "prefix": "t_bitmasking",
+
+        "body": [
+            "for(int i=0; i<(1<<N); i++) {",
+            "",
+            "    for(int j=0; j<N; j++) {",
+            "        if(((i & (1 << j)) > 0)) {",
+            "            if(${1:condition}) {",
+            "                break;",
+            "            }",
+            "",
+            "        }",
+            "    }",
+            "}"
+        ],
+        "description": "bitmask subsets"
+    },
+    "meet_in_the_middle": {
+        "prefix": "mitm",
+        "body": [
+            "    cin >> N >> X;",
+            "    vector<int> a(N);",
+            "    ",
+            "    for(int i=0; i<N; i++) {",
+            "        cin >> a[i]; ",
+            "    }",
+            "",
+            "    auto get_subset = [&](int l, int r) -> vector<long long> {",
+            "        int range = r - l + 1;",
+            "        vector<long long> out;",
+            "",
+            "        for(int i = 0; i < (1 << range); i++) {",
+            "            ${1:var}",
+            "",
+            "            for(int j = 0; j < range; j++) {",
+            "                if((i & (1 << j)) > 0) { ${2:func} a[l+j]; }",
+            "            }",
+            "            out.push_back(s);",
+            "        } ",
+            "",
+            "        return out;",
+            "    };",
+            "",
+            "    vector<long long> setLeft = get_subset(0, N/2 - 1); ",
+            "    vector<long long> setRight = get_subset(N/2, N - 1);",
+            "    sort(setLeft.begin(), setLeft.end()); ",
+            "    sort(setRight.begin(), setRight.end()); "
+        ],
+        "description": "meet_in_the_middle"
+    }
+}
